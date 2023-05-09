@@ -5,7 +5,7 @@ function App() {
   return (
     <div className="App">
       <Banner />
-      <Form />
+      <Form text="Preencha os dados para criar o card do colaborador."/>
     </div>
   )
 }
