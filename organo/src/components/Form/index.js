@@ -1,10 +1,11 @@
+import { useState } from 'react'
 
 import Button from '../Button'
 import DropdownList from '../DropdownList'
 import TextField from '../TextField'
 import './Form.css'
 
-const Form = (props) => {
+const Form = props => {
   const times = [
     'Programação',
     'Front-End',
@@ -14,16 +15,50 @@ const Form = (props) => {
     'Mobile',
     'Inovação e Gestão'
   ]
-  
+
+  const [nome, setNome] = useState('')
+  const [cargo, setCargo] = useState('')
+  const [imagem, setImagem] = useState('')
+  const [time, setTime] = useState('')
+
+  const whenSaving = event => {
+    event.preventDefault()
+    console.log('Form foi submetido => ', nome, cargo, imagem, time)
+  }
+
   return (
     <section className="form">
-      <form>
+      <form onSubmit={whenSaving}>
         <h2>{props.text}</h2>
-        <TextField label="Nome" placeholder="Digite o seu nome" />
-        <TextField label="Cargo" placeholder="Digite seu cargo" />
-        <TextField label="Imagem" placeholder="Informe o endereço da imagem" />
-        <DropdownList label="Time" itens={times}/>
-        <Button text="Criar card"/>
+        <TextField
+          label="Nome"
+          placeholder="Digite o seu nome"
+          required={true}
+          value={nome}
+          whenChanging={value => setNome(value)}
+        />
+        <TextField
+          label="Cargo"
+          placeholder="Digite seu cargo"
+          required={true}
+          value={cargo}
+          whenChanging={value => setCargo(value)}
+        />
+        <TextField
+          label="Imagem"
+          placeholder="Informe o endereço da imagem"
+          required={true}
+          value={imagem}
+          whenChanging={value => setImagem(value)}
+        />
+        <DropdownList
+          label="Time"
+          itens={times}
+          required={true}
+          value={time}
+          whenChanging={value => setTime(value)}
+        />
+        <Button text="Criar card" />
       </form>
     </section>
   )
