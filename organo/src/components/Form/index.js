@@ -23,7 +23,12 @@ const Form = props => {
 
   const whenSaving = event => {
     event.preventDefault()
-    console.log('Form foi submetido => ', nome, cargo, imagem, time)
+    props.registeredEmployee({
+      nome,
+      cargo,
+      imagem,
+      time
+    })
   }
 
   return (
