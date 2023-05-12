@@ -53,10 +53,18 @@ function App() {
     <div className="App">
       <Banner />
       <Form
+        teams={teams.map(team => team.nome)}
         text="Preencha os dados para criar o card do colaborador."
         registeredEmployee={colaborador => newContributorAdd(colaborador)}
       />
-      {teams.map(team => <Team key={team.nome} teamName={team.nome} primaryColor={team.corPrimaria} secondaryColor={team.corSecundaria} /> )}
+      {teams.map(team => (
+        <Team
+          key={team.nome}
+          teamName={team.nome}
+          primaryColor={team.corPrimaria}
+          secondaryColor={team.corSecundaria}
+        />
+      ))}
     </div>
   )
 }
