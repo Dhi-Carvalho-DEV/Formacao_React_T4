@@ -45,7 +45,6 @@ function App() {
   const [colaboradores, setColaboradores] = useState([])
 
   const newContributorAdd = colaborador => {
-    console.log(colaboradores)
     setColaboradores([...colaboradores, colaborador])
   }
 
@@ -63,6 +62,7 @@ function App() {
           teamName={team.nome}
           primaryColor={team.corPrimaria}
           secondaryColor={team.corSecundaria}
+          colaboradores={colaboradores.filter(colaborador => colaborador.time === team.nome)}
         />
       ))}
     </div>
