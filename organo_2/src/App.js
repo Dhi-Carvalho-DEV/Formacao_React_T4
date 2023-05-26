@@ -256,6 +256,10 @@ function App() {
     );
   }
 
+  function cadastrarTime(novoTime) {
+    setTimes([...times, {...novoTime, id:uuidv4()}])
+  }
+
   return (
     <div>
       <Banner />
@@ -264,6 +268,7 @@ function App() {
         aoCadastrar={(colaborador) =>
           setColaboradores([...colaboradores, colaborador])
         }
+        cadastrarTime={cadastrarTime}
       />
       <section className="times">
         <h1>Minha organização</h1>
