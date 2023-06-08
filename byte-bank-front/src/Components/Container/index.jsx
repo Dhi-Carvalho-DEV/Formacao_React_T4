@@ -1,17 +1,35 @@
 import React from "react";
+import styled from 'styled-components'
+import { fundoClaro } from "../UI/variaveis";
+import Extrato from "../Extrato";
 
 import Titulo from "../Titulo";
 import Conta from "../Conta";
 
-const Container = () => {
-  return (
-    <div className="container">
-      <Titulo>Olá Fulano!</Titulo>
-      <section className="conteudo">
-        <Conta />
-      </section>
-    </div>
-  );
-};
+const Container = styled.div`
+  background-color: ${fundoClaro};
+  min-height: 90vh;
+  padding: 0px 15vw;
+`
 
-export default Container;
+const Conteudo = styled.section`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+  }
+`
+
+export default () => {
+  return (
+    <Container>
+      <Titulo>Olá Fulano!</Titulo>
+      <Conteudo>
+        <Conta />
+        <Extrato />
+      </Conteudo>
+    </Container>
+  )
+}
