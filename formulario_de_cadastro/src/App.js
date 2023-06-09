@@ -6,10 +6,10 @@ import { Container, Typography } from "@material-ui/core";
 class App extends Component {
   render() {
     return (
-      <Container Component="article" maxWidth="sm" >
+      <Container component="article" maxWidth="sm" >
         <Typography
           variant="h3"
-          Component="h1"
+          component="h1"
           align="center">
             Formulário de cadastro
         </Typography>
